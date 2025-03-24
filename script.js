@@ -70,3 +70,31 @@ function startGame() {
     document.getElementById("businessName").innerText = type;
     renderMissions();
 }
+
+
+function enviarPontuacao() {
+    const nome = prompt("Digite seu nome para o ranking:");
+    if (nome) {
+        const pontuacao = dinheiro + (branches * 5000) + (employees * 2000) + (missions.filter(m => m.completed).length * 10000) - (day * 100);
+        db.collection("ranking").add({ nome, pontuacao })
+            .then(() => alert("Pontuação enviada com sucesso!"))
+            .catch(error => alert("Erro ao enviar pontuação: " + error));
+    }
+}
+
+function carregarRanking() {
+    db.collection("ranking").orderBy("pontuacao", "desc").limit(10).get()
+        .then(querySnapshot => {
+            const rankingList = document.getElementById("rankingList");
+            rankingList.innerHTML = "";
+            querySnapshot.forEach(doc => {
+                const data = doc.data();
+                const li = document.createElement("li");
+                li.textContent = `${data.nome}: ${data.pontuacao}`;
+                rankingList.appendChild(li);
+            });
+        })
+        .catch(error => alert("Erro ao carregar ranking: " + error));
+}
+
+carregarRanking();
