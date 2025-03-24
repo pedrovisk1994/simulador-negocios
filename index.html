@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador de Negócios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 data-i18n="Simulador de Negócios">Simulador de Negócios</h1>
+    <div id="game">
+        <div style="text-align:right;"><button onclick="resetGame()">🔄 Resetar Jogo</button> <button onclick="toggleLanguage()">🌐 Idioma</button></div>
+<div id="setup">
+            <label for="businessType" data-i18n="Escolha seu tipo de negócio:">Escolha seu tipo de negócio:</label>
+            <select id="businessType">
+                <option value="Restaurante">Restaurante</option>
+                <option value="Loja de Roupas">Loja de Roupas</option>
+                <option value="Fábrica">Fábrica</option>
+                <option value="Startup Tech">Startup Tech</option>
+            </select>
+            <button onclick="startGame()" data-i18n="Começar">Começar</button>
+        </div>
+        <div id="gameplay" style="display:none;">
+            <p><strong>Negócio:</strong> <span id="businessName"></span></p>
+            <p><strong>Dia:</strong> <span id="day">1</span></p>
+            <p><strong>Dinheiro:</strong> $<span id="money">10000</span></p>
+            <p><strong>Estoque:</strong> <span id="stock">50</span> unidades</p>
+            <p><strong>Funcionários:</strong> <span id="employees">2</span></p>
+            <p><strong>Preço Unitário:</strong> $<span id="price">100</span></p>
+            <p><strong>Marketing:</strong> <span id="marketing">1</span></p>
+            <p><strong>P&D:</strong> <span id="rnd">1</span></p><p><strong>Reputação:</strong> <span id="reputation">50</span></p><p><strong>Filiais:</strong> <span id="branches">1</span></p><p id="event" style="color: darkred;"></p>
+
+            <h3>Gerenciar Empresa</h3>
+            <button onclick="hire()">+ Contratar</button>
+            <button onclick="fire()">- Demitir</button>
+            <br>
+            <button onclick="increasePrice()">+ Aumentar Preço</button>
+            <button onclick="decreasePrice()">- Diminuir Preço</button>
+            <br>
+            <button onclick="investMarketing()">Investir em Marketing</button>
+            <button onclick="investRND()">Investir em P&D</button>
+            <br><br>
+            <button onclick="nextDay()" data-i18n="Próximo Dia">Próximo Dia</button>
+        </div>
+    
+        <h3>Clientes</h3><ul><li><strong>Econômico</strong>: prefere preço baixo</li><li><strong>Qualidade</strong>: busca empresas com alto P&D</li><li><strong>Influenciado</strong>: é impactado por marketing</li></ul><h3>Concorrência</h3><table border="1" style="width:100%;text-align:center;"><thead><tr><th>Nome</th><th>Preço</th><th>Marketing</th><th>P&D</th></tr></thead><tbody id="competitorTable"></tbody></table><h3>Desempenho</h3>
+        <canvas id="performanceChart" width="400" height="200"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
