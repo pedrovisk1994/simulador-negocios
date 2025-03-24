@@ -36,35 +36,10 @@
             <p><strong>Filiais:</strong> <span id="branches">1</span></p>
             <p id="event" style="color: darkred;"></p>
 
-            <h3>Concorrência</h3>
-            <table border="1" style="width:100%;text-align:center;">
-                <thead>
-                    <tr><th>Nome</th><th>Preço</th><th>Marketing</th><th>P&D</th></tr>
-                </thead>
-                <tbody id="competitorTable"></tbody>
-            </table>
+            <h3>Missões</h3>
+            <ul id="missionsList"></ul>
 
-            <h3>Clientes</h3>
-            <ul>
-                <li><strong>Econômico</strong>: prefere preço baixo</li>
-                <li><strong>Qualidade</strong>: busca empresas com alto P&D</li>
-                <li><strong>Influenciado</strong>: é impactado por marketing</li>
-            </ul>
-
-            <h3>Gerenciar Empresa</h3>
-            <button onclick="hire()">+ Contratar</button>
-            <button onclick="fire()">- Demitir</button>
-            <br>
-            <button onclick="increasePrice()">+ Aumentar Preço</button>
-            <button onclick="decreasePrice()">- Diminuir Preço</button>
-            <br>
-            <button onclick="investMarketing()">Investir em Marketing</button>
-            <button onclick="investRND()">Investir em P&D</button>
-            <button onclick="openBranch()">Abrir Filial</button>
-            <br><br>
-            <button onclick="nextDay()" data-i18n="Próximo Dia">Próximo Dia</button>
-
-            <h3>Missões</h3><ul id="missionsList"></ul><h3>Desempenho</h3>
+            <h3>Desempenho</h3>
             <canvas id="performanceChart" width="400" height="200"></canvas>
         </div>
     </div>

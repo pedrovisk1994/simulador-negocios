@@ -1,5 +1,4 @@
 
-// Versão reduzida aqui só como placeholder para manter fluxo
 let lang = 'pt';
 const texts = {
     pt: {
@@ -52,6 +51,7 @@ function checkMissions() {
 
 function renderMissions() {
     const ul = document.getElementById("missionsList");
+    if (!ul) return;
     ul.innerHTML = "";
     missions.forEach(m => {
         const li = document.createElement("li");
@@ -62,8 +62,11 @@ function renderMissions() {
     });
 }
 
-// Simular chamada dentro de nextDay
-function mockNextDay() {
-    checkMissions();
+function startGame() {
+    const type = document.getElementById("businessType").value;
+    business = type;
+    document.getElementById("setup").style.display = "none";
+    document.getElementById("gameplay").style.display = "block";
+    document.getElementById("businessName").innerText = type;
     renderMissions();
 }
